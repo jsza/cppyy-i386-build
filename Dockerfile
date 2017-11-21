@@ -22,7 +22,6 @@ RUN cd /opt && wget https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.9.0-linux
     && aunpack pypy2-v5.9.0-linux32.tar.bz2 \
     && cd pypy2-v5.9.0-linux32/bin \
     && ./pypy -m ensurepip \
-    && ./pip install wheel \
-    && setarch i386 ./pip -v install cppyy
+    && ./pip install wheel
 
 ENTRYPOINT ['/bin/bash']
