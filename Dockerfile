@@ -1,4 +1,4 @@
-FROM i386/ubuntu:xenial
+FROM i386/debian:sid
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -qy install --no-install-recommends \
     pypy \
@@ -18,10 +18,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -qy install --no-in
     liblzma-dev \
     libgl2ps-dev
 
-RUN cd /opt && wget https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.9.0-linux32.tar.bz2 \
-    && aunpack pypy2-v5.9.0-linux32.tar.bz2 \
-    && cd pypy2-v5.9.0-linux32/bin \
-    && ./pypy -m ensurepip \
-    && ./pip install wheel
+# RUN cd /opt && wget https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.9.0-linux32.tar.bz2 \
+#     && aunpack pypy2-v5.9.0-linux32.tar.bz2 \
+#     && cd pypy2-v5.9.0-linux32/bin \
+#     && ./pypy -m ensurepip \
+#     && ./pip install wheel
 
 ENTRYPOINT ['/bin/bash']
